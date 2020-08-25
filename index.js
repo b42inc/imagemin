@@ -22,7 +22,7 @@ const handleFile = async (sourcePath, {destination, plugins = []}) => {
 
 	const {ext} = await FileType.fromBuffer(data);
 	let destinationPath = destination ? path.join(destination, path.basename(sourcePath)) : undefined;
-	destinationPath = ext === 'webp' ? replaceExt(destinationPath, '.webp') : destinationPath;
+	destinationPath = ext === 'webp' ? `${destinationPath}.webp` : destinationPath;
 
 	const returnValue = {
 		data,
